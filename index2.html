@@ -18,17 +18,17 @@
 
         <div class="booking-form">
            <div class="boka-titel"><h2>Boka En Tid</h2></div>
-          <form>
+          <form onsubmit="return false">
             <label for="name">Namn:</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="input_namn" name="name" required>
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="input_email" name="email" required>
             <label for="phone">telefonnummer:</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="tel" id="input_tel" name="phone" required>
             <label for="date">Datum:</label>
-            <input type="date" id="date" name="date" required>
+            <input type="date" id="input_datum" name="date" required>
             <label for="time">tid:</label>
-            <select id="time" name="time" required>
+            <select id="input_tid" name="time" required>
               <option value="">Select a Time</option>
               <option value="9:00am" >9:00am</option>
               <option value="10:00am" disabled>10:00am</option>
@@ -41,8 +41,9 @@
               <option value="5:00pm" >5:00pm</option>
               <option value="6:00pm" disabled>6:00pm</option>
             </select>
-            <input type="submit" value="Book Now">
+            <input onclick="bokaTiden()" type="submit" value="Book Now">
           </form>
         </div>
 </body>
+<script src="javascript.js"></script>
 </html>
