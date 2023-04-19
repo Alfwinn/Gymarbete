@@ -1,76 +1,139 @@
 
 
 class Bokning {
-    constructor(b_id, namn, tel, tid, datum, webtid ){
+    constructor(b_id, namn, tel, tid, datum, email) {
         this.b_id = b_id;
         this.namn = namn;
         this.tel = tel;
         this.tid = tid;
         this.datum = datum;
-        this.webtid = webtid;
+        this.email = email;
     }
-
 }
 
-let datum = document.getElementById("date")
-console.log("datum=" + datum)
+let vald_dag_bokningar = [];
 
-function bokaTiden(){
-    console.log("click")
-    let input_namn = document.getElementById("input_namn").value
-    console.log("click" + input_namn )
+let datum = document.getElementById("input_datum")
+//console.log("datum=" + datum.value)
+let bokning_table_body = document.getElementById("table_body");
 
-    console.log("click")
-    let input_email = document.getElementById("input_email").value
-    console.log("click" + input_email )
 
-    console.log("click")
-    let input_tel = document.getElementById("input_tel").value
-    console.log("click" + input_tel )
+//När datum ändras i kalender
+datum.addEventListener("change", dateChange);
 
-    console.log("click")
-    let input_datum = document.getElementById("input_datum").value
-    console.log("click" + input_datum )
-
-    console.log("click")
-    let input_tid = document.getElementById("input_tid").value
-    console.log("click" + input_tid )
-
-//    console.log("click")
-//    let input_datum = document.getElementById("input_datum").value
-//    console.log("click" + input_datum )
-//   RESARVERAD TILL TYPER AV KLIPPNINGAR
-
+async function dateChange(e) {
+    valt_datum = e.target.value;
+    //console.log(`change ${valt_datum}`)
     
+    await getDayBokinDataDb(valt_datum);       
 }
 
+async function bokaTiden() {
+    //console.log("click")
+    let input_namn = document.getElementById("input_namn").value
+    let input_email = document.getElementById("input_email").value
+    let input_tel = document.getElementById("input_tel").value
+    let input_datum = document.getElementById("input_datum").value
+    let input_tid = document.getElementById("input_tid").value
 
+    bokaTid(input_namn, input_tel, input_tid, input_datum, input_email);
 
-async function bokaTid(){
+    await getDayBokinDataDb(input_datum);
+    
+    //Tömmer textfält namn, tel och  email
+    document.getElementById("input_namn").value = "";
+    document.getElementById("input_email").value = "";
+    document.getElementById("input_tel").value = "";
+}
 
-    if (namn_input.value !== ""){
-        const now = Date.now(); 
-        const id = now.toString()
-        console.log(`daum= ${now}`)
-        //console.log(`boka tid array Json= ${JSON.stringify(vald_dag_bokningar)}`);
-        let t_datum = datum_input.value;
-        let bokning = new Bokning(id, namn_input.value, tel_input.value, tid_input.value, t_datum, webtid_input.checked);
+async function bokaTid(t_namn, t_tel, t_tid, t_datum, t_email) {
 
+    if (t_namn !== "" && t_tid !== "") {
+        const now = Date.now();
+        const id = now.toString();
+        //console.log(`daum= ${now}`);
+    
+        let bokning = new Bokning(id, t_namn, t_tel, t_tid, t_datum, t_email);
         vald_dag_bokningar.push(bokning);
-  
-        await setDayBokingDataDb(vald_dag_bokningar, t_datum );
-        //console.log(`Json= ${JSON.stringify(vald_dag_bokningar)}`);
 
+        await setDayBokingDataDb(vald_dag_bokningar, t_datum);
     }
     else
-        alert("Namn Saknas!")
-
+        alert("Namn eller tid saknas!")
 }
 
-async function setDayBokingDataDb(t_bokningar_dag, t_date){
-    //console.log(`setB ${t_bokning.namn}`)
+async function delButtonClick(e) {
+    const sourceElement = e.target;
+    //console.log(`id= ${sourceElement.id}`);
+    await delDayBoking(vald_dag_bokningar, document.getElementById("input_datum").value, sourceElement.id);
+}
+
+function listDayBokings(){
+    //console.log(`längd= ${vald_dag_bokningar.length}`)
+    let tr_string = "";
     
-        localStorage.setItem(t_date , JSON.stringify(t_bokningar_dag));
-        //listDayBokings();
+    vald_dag_bokningar.forEach(dbokn => {
+        tr_string += `<tr>
+        <td>${dbokn.tid}</td><td>${dbokn.namn}</td><td>${dbokn.tel}</td><td>${dbokn.email}</td><td>${dbokn.b_id}</td><td><button onclick="delButtonClick(event)" name="${dbokn.b_id}" id="${dbokn.b_id}">avboka</button></td>
+        </tr>`    
+    });
+
+    bokning_table_body.innerHTML=tr_string;
+}
+
+let bokingSort = (a, b) => {
+    if (a.tid < b.tid) {
+        return -1;
+      }
+      if (a.tid > b.tid) {
+        return 1;
+      }
+      return 0;
+}
+
+//------------------------------------------------------------
+//Databas funktioner med CRUD frågor---------------------------
+async function setDayBokingDataDb(t_bokningar_dag, t_date) {
+    
+    localStorage.setItem(t_date, JSON.stringify(t_bokningar_dag));
+    //getDayBokinDataDb(t_date);
+}
+
+async function getDayBokinDataDb(t_date){
+    let dagbokningar = []
+
+    try {
+        dagbokningar = await JSON.parse(localStorage.getItem(t_date) );
+
+        //Om billistan  är tom Null från localStorage
+        if (dagbokningar == null){
+            vald_dag_bokningar = []
+            console.log(`hämtar ${dagbokningar}`)
+        }
+        else{
+            console.log(`hämtar2 ${dagbokningar}`)
+            dagbokningar.sort(bokingSort);//Sorterar på tid
+            vald_dag_bokningar = dagbokningar;
+        }
+
+        listDayBokings(); 
+    }
+    catch (e){
+        console.log(`Fel: ${e}`)
+    }
+    //return dagbokningar;
+}
+
+async function delDayBoking(t_bokningar_dag, t_date, t_id){
+
+    try{
+
+        const del_t_bokningar_dag = await t_bokningar_dag.filter((o, i) => o.b_id !== t_id)//e.target.id
+        localStorage.setItem(t_date , JSON.stringify(del_t_bokningar_dag));
         getDayBokinDataDb(t_date);
     }
+    catch(e){
+        alert(`Kunde inte tabort bokning: ${e}`)
+    }
+
+}

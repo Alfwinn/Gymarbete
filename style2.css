@@ -79,3 +79,41 @@ h2 {
     padding: 10px;
     font-size: 
   }
+
+  table{
+    margin: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: antiquewhite;
+  }
+
+  tr{
+    margin: 20px;
+  }
+  
+  .th_tid {
+    width: 70px;
+    text-align: left;
+}
+.th_namn{
+    width: 140px;
+    text-align: left;
+}
+.th_tel{
+    width: 100px;
+    text-align: left;
+}
+
+.th_email{
+  width: 200px;
+  text-align: left;
+}
+
+.th_id{
+    width: 160px;
+    text-align: left;
+}
+
+.th_avboka{
+    width: 60px;
+    text-align: center;
+}

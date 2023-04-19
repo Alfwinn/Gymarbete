@@ -17,7 +17,10 @@
         <h2>Köpmangatan 44c</h2>
 
         <div class="booking-form">
-           <div class="boka-titel"><h2>Boka En Tid</h2></div>
+           <div class="boka-titel">
+            <h2>Boka En Tid</h2>
+          </div>
+
           <form onsubmit="return false">
             <label for="name">Namn:</label>
             <input type="text" id="input_namn" name="name" required>
@@ -30,19 +33,41 @@
             <label for="time">tid:</label>
             <select id="input_tid" name="time" required>
               <option value="">Select a Time</option>
-              <option value="9:00am" >9:00am</option>
-              <option value="10:00am" disabled>10:00am</option>
-              <option value="11:00am" disabled>11:00am</option>
-              <option value="12:00pm" disabled>12:00pm</option>
-              <option value="1:00pm" >1:00pm</option>
-              <option value="2:00pm" disabled>2:00pm</option>
-              <option value="3:00pm" >3:00pm</option>
-              <option value="4:00pm" >4:00pm</option>
-              <option value="5:00pm" >5:00pm</option>
-              <option value="6:00pm" disabled>6:00pm</option>
+              <option value="08:00" >08:00</option>
+              <option value="09:00" >09:00</option>
+              <option value="10:00" >10:00</option>
+              <option value="11:00" >11:00</option>
+              <option value="12:00" >12:00</option>
+              <option value="13:00" >13:00</option>
+              <option value="14:00" >14:00</option>
+              <option value="15:00" >15:00</option>
+              <option value="16:00" >16:00</option>
+              <option value="17:00" >17:00</option>
             </select>
             <input onclick="bokaTiden()" type="submit" value="Book Now">
           </form>
+        </div>
+
+        <hr>
+        <div class="div_bokningslista">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="th_tid">Tid</th>
+                        <th class="th_namn">Namn</th>
+                        <th class="th_tel">Tel</th>
+                        <th class="th_email">Email</th>
+                        <th class="th_id">Id</th>
+                        <th class="th_avboka">Avboka</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body">
+                    
+                    
+                </tbody>
+            </table>
+
+
         </div>
 </body>
 <script src="javascript.js"></script>

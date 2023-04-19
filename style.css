@@ -54,13 +54,13 @@ button {
     background-color: rgb(53, 44, 90);
     color: white;
     padding: 14px 20px;
-    margin: 8px ;
+    margin: 8px;
     border: none;
     cursor: pointer;
     width: 100px;
     position: relative;
-    
-    
+
+
 }
 
 button:hover {
@@ -187,9 +187,10 @@ img {
     gap: 0em;
 }
 
+/*container till frisör info*/
 .flex-container>div {
     background-color: rgb(177, 156, 156);
-    height: 800px;
+    height: 465px;
     width: 700px;
     margin: auto;
     margin-top: 20px;
@@ -229,16 +230,88 @@ img {
     color: rgb(36, 32, 50);
 }
 
-.Andrea-knapp {
+.Andrea-info {
     background: rgb(194, 174, 174);
     width: 375px;
-    height: 150px;
-    margin: 40px 90px 0px 300px;
+    height: 205px;
+    margin: 25px 90px 0px 300px;
     border: solid 0;
     border-radius: 5px;
     font-family: Helvetica;
     font-size: 20px;
     color: rgb(36, 32, 50);
+}
+
+.Andrea-Sm1 {
+    background: rgb(177, 156, 156);
+    width: 220px;
+    height: 130px;
+    margin: -56px 90px 0px 180px;
+    border: solid 0;
+    border-radius: 5px 0px 0px 0px;
+    font-family: Helvetica;
+    font-size: 20px;
+    color: rgb(36, 32, 50);
+}
+
+.Andrea-Sm2 {
+    background: rgb(194, 174, 174);
+    width: 175px;
+    height: 110px;
+    margin: -110px 90px 0px 200px;
+    border: solid 0;
+    border-radius: 5px 0px 5px 0px;
+    font-family: Helvetica;
+    font-size: 20px;
+    color: rgb(36, 32, 50);
+}
+
+/*Andrea-info-overlay är en div som är genomskinlig 
+för att få all info på rätt ställe*/
+.Andrea-info-overlay {
+    width: 375px;
+    height: 205px;
+    margin: -205px 90px 0px 300px;
+    border: solid 0;
+    border-radius: 5px;
+    font-family: Helvetica;
+    font-size: 20px;
+    color: rgb(36, 32, 50);
+}
+
+.andrea-kontakta-mig {
+    position: absolute;
+    font-family: Helvetica;
+    font-size: 40px;
+    color: rgb(36, 32, 50);
+    margin: -120px 0px 0px 65px;
+}
+
+.Text-andrea-tel {
+    position: absolute;
+    margin: 10px 0px 0px 20px;
+}
+
+.Text-andrea-email {
+    position: absolute;
+    margin: -50px 0px 0px 20px;
+}
+
+.Text-Socialamedier {
+    margin: -90px 0px 0px 225px;
+}
+
+.Andrea-Facebook {
+    margin: -52px 0px 0px 230px;
+}
+
+.Andrea-Instagram {
+    margin: 145px 0px 0px 300px;
+}
+
+.Andrea-tel {
+    margin: 10px 0px 0px 10px;
+    color: #ffffff
 }
 
 .Andrea-pre-info {
@@ -270,11 +343,157 @@ img {
     margin: -320px 0px 0px 120px;
 }
 
+/*Andrea-info-overlay är en div som är genomskinlig 
+för att få all info på rätt ställe*/
+.Angelica-info-overlay {
+    width: 375px;
+    height: 205px;
+    margin: -205px 90px 0px 300px;
+    border: solid 0;
+    border-radius: 5px;
+    font-family: Helvetica;
+    font-size: 20px;
+    color: rgb(36, 32, 50);
+}
 
+.angelica-kontakta-mig {
+    position: absolute;
+    font-family: Helvetica;
+    font-size: 40px;
+    color: rgb(36, 32, 50);
+    margin: -120px 0px 0px 65px;
+}
+
+.Text-angelica-tel {
+    position: absolute;
+    margin: 10px 0px 0px 20px;
+}
+
+.Text-angelica-email {
+    position: absolute;
+    margin: -50px 0px 0px 20px;
+}
+
+.Text-Socialamedier {
+    margin: -90px 0px 0px 225px;
+}
+
+.Angelica-Facebook {
+    margin: -52px 0px 0px 230px;
+}
+
+.Angelica-Instagram {
+    margin: 145px 0px 0px 300px;
+}
+
+.Angelica-tel {
+    margin: 10px 0px 0px 10px;
+    color: #ffffff
+}
+
+.Andrea-pre-info {
+    background: rgb(194, 174, 174);
+    width: 375px;
+    height: 70px;
+    margin: -61px 90px 0px 300px;
+    border: solid 0;
+    border-radius: 5px;
+    font-family: Helvetica;
+    font-size: 20px;
+    color: rgb(36, 32, 50);
+}
+
+/*Boka knapp*/
+.Andrea-boka-knapp {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: rgb(194, 174, 174);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 40px;
+    width: 650px;
+    height: 90px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 25px 0px 0px 25px;
+}
+
+.Andrea-boka-knapp span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.Andrea-boka-knapp span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.Andrea-boka-knapp:hover span {
+    padding-right: 25px;
+}
+
+.Andrea-boka-knapp:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+/*Slut på boka knapp*/
+
+/*Boka knapp*/
+.Angelica-boka-knapp {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: rgb(194, 174, 174);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 40px;
+    width: 650px;
+    height: 90px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 25px 0px 0px 25px;
+}
+
+.Angelica-boka-knapp span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.Angelica-boka-knapp span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.Angelica-boka-knapp:hover span {
+    padding-right: 25px;
+}
+
+.Angelica-boka-knapp:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+/*Slut på boka knapp*/
 .footer {
     position: absolute;
     background: grey;
-    margin: 100% 0% 0% 2%;
+    margin: 200% 0% 0% 0%;
     height: 20%;
     width: 96%;
 
