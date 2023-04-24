@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel=stylesheet href="style2.css">ssss
+    <link rel=stylesheet href="style2.css">
 </head>
 <body>
     <h1>Andréa Frisör</h1>
@@ -28,6 +28,22 @@
             <input type="email" id="input_email" name="email" required>
             <label for="phone">telefonnummer:</label>
             <input type="tel" id="input_tel" name="phone" required>
+
+            <label for="Behandling">Behandling:</label>
+            <select id="input_behandling" name="Behandling" required>
+              <option value="">Select a Time</option>
+              <option value="Klippning" >Klippning</option>
+              <option value="Klippning T/L" >Klippning Tjokt/Långt hår</option>
+              <option value="Färg" >Färg</option>
+              <option value="Bottenfärg" >Bottenfärg</option>
+              <option value="Folieslingor" >Folieslingor</option>
+              <option value="Klippning & Bottenfärg" >Klippning & Bottenfärg</option>
+              <option value="Klippning & Flerfärg" >Klippning & Flerfärg</option>
+              <option value="Klippning & Folieslingor" >Klippning & Folieslingor</option>
+              <option value="Tvätt med Styling och föning" >Tvätt med Styling och föning</option>
+              <option value="Uppsättning" >Uppsättning</option>
+            </select>
+            
             <label for="date">Datum:</label>
             <input type="date" id="input_datum" name="date" required>
             <label for="time">tid:</label>
@@ -54,6 +70,7 @@
                 <thead>
                     <tr>
                         <th class="th_tid">Tid</th>
+                        <th class="th_Behandling">Behandling</th>
                         <th class="th_namn">Namn</th>
                         <th class="th_tel">Tel</th>
                         <th class="th_email">Email</th>

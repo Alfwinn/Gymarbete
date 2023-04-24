@@ -1,13 +1,14 @@
 
 
 class Bokning {
-    constructor(b_id, namn, tel, tid, datum, webtid ){
+    constructor(b_id, namn, tel, tid, datum, webtid, behandling ){
         this.b_id = b_id;
         this.namn = namn;
         this.tel = tel;
         this.tid = tid;
         this.datum = datum;
         this.webtid = webtid;
+        this.behandling = behandling;
     }
 
 }
@@ -19,6 +20,7 @@ function bokaTiden(){
     console.log("click")
     let input_namn = document.getElementById("input_namn").value
     console.log("click" + input_namn )
+
 
     console.log("click")
     let input_email = document.getElementById("input_email").value

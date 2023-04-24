@@ -326,83 +326,6 @@ för att få all info på rätt ställe*/
     color: rgb(36, 32, 50);
 }
 
-/*Angelica*/
-.frisör-bild-2 {
-    background: white;
-    height: 300px;
-    width: 250px;
-    margin: 25px 25px 25px 425px;
-    border: solid 0;
-    border-radius: 10px;
-}
-
-.Angelica-namn {
-    font-family: Helvetica;
-    font-size: larger;
-    color: rgb(36, 32, 50);
-    margin: -320px 0px 0px 120px;
-}
-
-/*Andrea-info-overlay är en div som är genomskinlig 
-för att få all info på rätt ställe*/
-.Angelica-info-overlay {
-    width: 375px;
-    height: 205px;
-    margin: -205px 90px 0px 300px;
-    border: solid 0;
-    border-radius: 5px;
-    font-family: Helvetica;
-    font-size: 20px;
-    color: rgb(36, 32, 50);
-}
-
-.angelica-kontakta-mig {
-    position: absolute;
-    font-family: Helvetica;
-    font-size: 40px;
-    color: rgb(36, 32, 50);
-    margin: -120px 0px 0px 65px;
-}
-
-.Text-angelica-tel {
-    position: absolute;
-    margin: 10px 0px 0px 20px;
-}
-
-.Text-angelica-email {
-    position: absolute;
-    margin: -50px 0px 0px 20px;
-}
-
-.Text-Socialamedier {
-    margin: -90px 0px 0px 225px;
-}
-
-.Angelica-Facebook {
-    margin: -52px 0px 0px 230px;
-}
-
-.Angelica-Instagram {
-    margin: 145px 0px 0px 300px;
-}
-
-.Angelica-tel {
-    margin: 10px 0px 0px 10px;
-    color: #ffffff
-}
-
-.Andrea-pre-info {
-    background: rgb(194, 174, 174);
-    width: 375px;
-    height: 70px;
-    margin: -61px 90px 0px 300px;
-    border: solid 0;
-    border-radius: 5px;
-    font-family: Helvetica;
-    font-size: 20px;
-    color: rgb(36, 32, 50);
-}
-
 /*Boka knapp*/
 .Andrea-boka-knapp {
     display: inline-block;
@@ -446,6 +369,83 @@ för att få all info på rätt ställe*/
 
 
 /*Slut på boka knapp*/
+
+/*Angelica*/
+.frisör-bild-2 {
+    background: white;
+    height: 300px;
+    width: 250px;
+    margin: 25px 25px 25px 425px;
+    border: solid 0;
+    border-radius: 10px;
+}
+
+.Angelica-namn {
+    font-family: Helvetica;
+    font-size: larger;
+    color: rgb(36, 32, 50);
+    margin: -320px 0px 0px 120px;
+}
+
+/*Angelica-info-overlay är en div som är genomskinlig 
+för att få all info på rätt ställe*/
+.Angelica-info-overlay {
+    width: 375px;
+    height: 205px;
+    margin: 20px 0px 0px 25px;
+    border: solid 0;
+    border-radius: 5px;
+    font-family: Helvetica;
+    font-size: 20px;
+    color: rgb(36, 32, 50);
+}
+
+.angelica-kontakta-mig {
+    position: absolute;
+    font-family: Helvetica;
+    font-size: 40px;
+    color: rgb(36, 32, 50);
+    margin: -120px 0px 0px 65px;
+}
+
+.Text-angelica-tel {
+    position: absolute;
+    margin: 10px 0px 0px 20px;
+}
+
+.Text-angelica-email {
+    position: absolute;
+    margin: -50px 0px 0px 20px;
+}
+
+.Text-Socialamedier {
+    margin: -90px 0px 0px 225px;
+}
+
+.Angelica-Facebook {
+    margin: -52px 0px 0px 230px;
+}
+
+.Angelica-Instagram {
+    margin: 145px 0px 0px 300px;
+}
+
+.Angelica-tel {
+    margin: 10px 0px 0px 10px;
+    color: #ffffff
+}
+
+.Angelica-pre-info {
+    background: rgb(194, 174, 174);
+    width: 375px;
+    height: 70px;
+    margin: -0px 90px 0px 300px;
+    border: solid 0;
+    border-radius: 5px;
+    font-family: Helvetica;
+    font-size: 20px;
+    color: rgb(36, 32, 50);
+}
 
 /*Boka knapp*/
 .Angelica-boka-knapp {

@@ -1,13 +1,14 @@
 
 
 class Bokning {
-    constructor(b_id, namn, tel, tid, datum, email) {
+    constructor(b_id, namn, tel, tid, datum, email, behandling) {
         this.b_id = b_id;
         this.namn = namn;
         this.tel = tel;
         this.tid = tid;
         this.datum = datum;
         this.email = email;
+        this.behandling = behandling;
     }
 }
 
@@ -35,8 +36,16 @@ async function bokaTiden() {
     let input_tel = document.getElementById("input_tel").value
     let input_datum = document.getElementById("input_datum").value
     let input_tid = document.getElementById("input_tid").value
+    let input_behandling =  document.getElementById("input_behandling").value
 
-    bokaTid(input_namn, input_tel, input_tid, input_datum, input_email);
+    //const selectElement = document.getElementById("mySelect");
+    //const selectedIndex = select_behandling.selectedIndex;
+    //const selectedOption = selectElement.options[selectedIndex];
+    //console.log(selectedOption.value);
+
+    console.log("behandling= " + input_behandling)
+
+    bokaTid(input_namn, input_tel, input_tid, input_datum, input_email, input_behandling);
 
     await getDayBokinDataDb(input_datum);
     
@@ -46,14 +55,14 @@ async function bokaTiden() {
     document.getElementById("input_tel").value = "";
 }
 
-async function bokaTid(t_namn, t_tel, t_tid, t_datum, t_email) {
+async function bokaTid(t_namn, t_tel, t_tid, t_datum, t_email, t_behandling) {
 
     if (t_namn !== "" && t_tid !== "") {
         const now = Date.now();
         const id = now.toString();
-        //console.log(`daum= ${now}`);
+        
     
-        let bokning = new Bokning(id, t_namn, t_tel, t_tid, t_datum, t_email);
+        let bokning = new Bokning(id, t_namn, t_tel, t_tid, t_datum, t_email, t_behandling);
         vald_dag_bokningar.push(bokning);
 
         await setDayBokingDataDb(vald_dag_bokningar, t_datum);
@@ -74,7 +83,7 @@ function listDayBokings(){
     
     vald_dag_bokningar.forEach(dbokn => {
         tr_string += `<tr>
-        <td>${dbokn.tid}</td><td>${dbokn.namn}</td><td>${dbokn.tel}</td><td>${dbokn.email}</td><td>${dbokn.b_id}</td><td><button onclick="delButtonClick(event)" name="${dbokn.b_id}" id="${dbokn.b_id}">avboka</button></td>
+        <td>${dbokn.tid}</td><td>${dbokn.behandling}</td><td>${dbokn.namn}</td><td>${dbokn.tel}</td><td>${dbokn.email}</td><td>${dbokn.b_id}</td><td><button onclick="delButtonClick(event)" name="${dbokn.b_id}" id="${dbokn.b_id}">avboka</button></td>
         </tr>`    
     });
 
